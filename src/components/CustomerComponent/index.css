@@ -1,0 +1,36 @@
+.main--dashboard-bg {
+    width: 100%;
+    padding-top:0px;
+    
+    background-size: cover;
+    
+   
+  
+    background-color: rgba(91, 88, 88, 0.241);
+  }
+
+
+
+.dashbord-background{
+
+    background-color: rgba(243, 240, 240, 0.241);
+    padding-top: 0px;
+    height: 30px;
+    padding-top: 2px;
+    margin-top: 10px;
+    padding-left: 10px;
+   
+}
+
+.dash-view {
+    background-color: rgb(255, 255, 255);
+    color: rgb(158, 14, 247);
+    height: 24px;
+    width: 100px;
+    text-align: center;
+    padding-top: 3px;
+   
+    margin-top: 2px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
