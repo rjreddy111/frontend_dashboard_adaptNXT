@@ -18,24 +18,24 @@ import './App.css';
 const App = ()=> (
   <div className="main-bg-container">
     <BrowserRouter>
-    <LeftBar/>
-    <div className="details-container-bg">
-     <Routes>
-        <Route path = "/dashboard" element={<Dashboard/>}   />
-        <Route path = "/inventory" element = {<Inventory/>} />
-        <Route path = "/order" element= {<Order/>}/> 
-        <Route path = "/return" element = {<ReturnsComponent/>}/>
-        <Route path = "/shipping" element = {<Shipping/>}/> 
-        <Route path = "/customer" element = {<CustomerComponent/>}/>
-        <Route path = "/channel" element= {<Channel/>}/> 
-        <Route path = "/integrations" element={<Integrations/>}/> 
-        <Route path = "/calculators" element={<Calculators/>}/> 
-        <Route path = "/reports" element = {<Reports/>}/> 
-        <Route path = "/account" element ={<Accounts/>}/>
-      </Routes>
+      <LeftBar/>
+        <div className="details-container-bg">
+            <Routes>
+              <Route path = "/dashboard" element={<Dashboard/>}   />
+              <Route path = "/inventory" element = {<Inventory/>} />
+              <Route path = "/order" element= {<Order/>}/> 
+              <Route path = "/return" element = {<ReturnsComponent/>}/>
+              <Route path = "/shipping" element = {<Shipping/>}/> 
+              <Route path = "/customer" element = {<CustomerComponent/>}/>
+              <Route path = "/channel" element= {<Channel/>}/> 
+              <Route path = "/integrations" element={<Integrations/>}/> 
+              <Route path = "/calculators" element={<Calculators/>}/> 
+              <Route path = "/reports" element = {<Reports/>}/> 
+              <Route path = "/account" element ={<Accounts/>}/>
+            </Routes>
 
-      </div>
-  </BrowserRouter>
+        </div>
+    </BrowserRouter>
   
   </div>
 )

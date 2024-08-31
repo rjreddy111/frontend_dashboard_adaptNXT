@@ -61,19 +61,3 @@ body {
   border-top-right-radius: 5px;
 }
 
-
-.no-data {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 90vh;
-}
-h4 {
-  font-size: 22px;
-}
-
-img {
-  width: 60%;
- 
-}

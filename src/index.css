@@ -55,6 +55,8 @@ code {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+  padding: 15px;
  
 
   color:rgb(125, 123, 123);

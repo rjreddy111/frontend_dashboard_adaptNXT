@@ -47,12 +47,12 @@ const pieChartData = [
                 x= "50%"
                 y="45%"
                
-                textAnchor="middle" style={{fill:"grey"}} fontSize={isSmallScreen?"8px": "12px"}  >
+                textAnchor="middle" style={{fill:"grey", lineHeight:1.5}} fontSize={isSmallScreen?"8px": "12px"}  >
                     Total
                 </text >
                 <text
                 x= "50%" y = "50%" 
-                textAnchor="middle"style={{"font-weight":"bold", fill:"#5F5D5E"}} fontSize={isSmallScreen?"10px": "14px"}>
+                textAnchor="middle"style={{"font-weight":"bold", fill:"black",lineHeight:1.5}} fontSize={isSmallScreen?"10px": "14px"}>
                     {totalSales}
                 </text>
 
@@ -93,14 +93,9 @@ class Dashboard extends Component {
 
     render(){
 
-
-   
-
-        
     const totalSales = pieChartData.reduce((accumulator,next)=> accumulator + next.sales,0)
     console.log(totalSales)
-        
-        
+          
         return(
             <div className="main--dashboard-bg">          
                 <div className="dashbord-background">
@@ -110,58 +105,62 @@ class Dashboard extends Component {
                 <div className="chart-container">
                     <div className="line-chart-graph">
                         <div className="style">
-                        <h5  >Sales vs Orders </h5>
-                        <IoIosInformationCircleOutline size={15} />
+                            <h5  >Sales vs Orders </h5>
+                            <IoIosInformationCircleOutline size={15} />
                         </div>
                         <hr/>
                       
                         <ResponsiveContainer width="100%"  height={isSmallScreen? 200:350} aspect={isSmallScreen?2:undefined} >
 
 
-                        <LineChart data={data_object}  
-                            margin={{ top: 5, right: 30, left: 20, bottom: 10 }}>
-                            <CartesianGrid strokeDasharray="3 3" />
-                           
-                            <XAxis dataKey="Month" fontSize={isSmallScreen? "10px": "12px"} />
-                            <YAxis yAxisId = "left-side" orientation="left" tickFormatter={valueConvert}  fontSize={isSmallScreen? "10px":"12px"}/>
-                            <YAxis yAxisId="right-side" orientation="right" fontSize={isSmallScreen? "10px":"12px"}/>
-                            <Tooltip />
-                            <Legend  layout="horizontal" verticalAlign="top"  align="center" wrapperStyle={{fontSize:"12px"}}/>
-                          
-                            <Line type="monotone" dataKey="Sales" stroke="#82ca9d"  yAxisId="left-side" strokeWidth={2}  />
-                            <Line type="monotone" dataKey="Orders"  stroke="#F49F1F" yAxisId="right-side" strokeWidth={2} />
-                        </LineChart>
-                        </ResponsiveContainer>
-                      
-
-
-                        
+                            <LineChart data={data_object}  
+                                margin={{ top: 5, right: 30, left: 20, bottom: 10 }}>
+                                <CartesianGrid strokeDasharray="3 3" />
+                            
+                                <XAxis dataKey="Month" fontSize={isSmallScreen? "10px": "12px"} />
+                                <YAxis yAxisId = "left-side" orientation="left" tickFormatter={valueConvert}  fontSize={isSmallScreen? "10px":"12px"}/>
+                                <YAxis yAxisId="right-side" orientation="right" fontSize={isSmallScreen? "10px":"12px"}/>
+                                <Tooltip />
+                                <Legend  layout="horizontal" verticalAlign="top"  align="center" wrapperStyle={{fontSize:"12px"}}/>
+                            
+                                <Line type="monotone" dataKey="Sales" stroke="#82ca9d"  yAxisId="left-side" strokeWidth={2}  />
+                                <Line type="monotone" dataKey="Orders"  stroke="#F49F1F" yAxisId="right-side" strokeWidth={2} />
+                            </LineChart>
+                        </ResponsiveContainer>     
 
                     </div>
+                    
                     <div className="piechart-background">
                         <div className="style portion">
-                        <h5>Portions of Sales</h5>
-                        <IoIosInformationCircleOutline size = {15} />
+                            <h5>Portions of Sales</h5>
+                            <IoIosInformationCircleOutline size = {15} />
 
                         </div>
                         <hr/>
+
+
+                        <div className="oval-shape">
+                  
                         <ResponsiveContainer width="100%" height={300} >
+                           
+                       
                             
-                            <PieChart >
+                            <PieChart  >
                                 
                                 <Pie cx="50%" cy="50%"
-                                data = {pieChartData}
-                                startAngle={90}
-                                endAngle={450}
-                                dataKey="sales" 
-                                labelLine={false}
-                                outerRadius={isSmallScreen? 80 : 120}
-                               
-                                label = {customizedLabel}
+                                    data = {pieChartData}
+                                    startAngle={90}
+                                    endAngle={450}
+                                    dataKey="sales" 
+                                    labelLine={false}
+                                    outerRadius={isSmallScreen? 80 : 120}
+                                    stroke="none"
+                                   
+                                    label = {customizedLabel}
                                 
                                 >
-                                    <Cell name = "WooCommerce Store" fill="#1FF4DC" dataKey="sales"  />
-                                    <Cell name = "Shopify Store" fill="#F77885" />
+                                    <Cell name = "WooCommerce Store" fill="#1FF4DC" stroke="#1FF4DC" dataKey="sales"  />
+                                    <Cell name = "Shopify Store" fill="#F77885" stroke="#F77885"  dataKey="sales"/>
                                     <Label content={<StyleFormats totalSales={totalSales}/>} />
                                            
                                         
@@ -170,8 +169,13 @@ class Dashboard extends Component {
                                
                                 <Legend iconSize={isSmallScreen? 6 : 12} iconType="circle" layout="horizontal" verticalAlign="bottom" align="center" wrapperStyle={{fontSize:isSmallScreen? "10px":"12px", display:"flex", flexDirection:"column"}}   />
                             </PieChart>
+                           
+                       
 
                         </ResponsiveContainer>
+                        </div>
+                    
+                       
 
                     </div>
                 </div>

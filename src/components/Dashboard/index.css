@@ -100,3 +100,10 @@
     }
     
 }
+
+.oval-shape {
+    transform: scaleY(0.8);
+    transform-origin: center;
+}
+
+
